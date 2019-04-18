@@ -1,8 +1,8 @@
 provider "aws"{
 region 	="us-west-1"
 }
-resource “aws_security_group” “websg” {
- name =”terraform-webserver-websg”
+resource "aws_security_group" "websg" {
+ name ="terraform-webserver-websg"
 ingress {
     protocol    = "tcp"
     from_port   = 22
@@ -23,7 +23,7 @@ resource "aws_key_pair" "tf-demokey" {
 resource "aws_instance" "LT_Web_server" {
 	ami	= "ami-069339bea0125f50d"
 	instance_type = "t2.micro"
-	vpc_security_group_ids = [“${aws_security_group.websg.id}”]
+	vpc_security_group_ids = ["${aws_security_group.websg.id}"]
 	tags  {
 	      Name = "LT_Web_server"
 	}
